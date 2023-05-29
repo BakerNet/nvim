@@ -147,14 +147,14 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-
+  -- Automatically close brackets / quotes
   {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
     end
   },
-
+  -- File tree sidebar *chef's kiss
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -164,6 +164,20 @@ require('lazy').setup({
     config = function()
       require("nvim-tree").setup {}
     end,
+  },
+  -- Change history
+  { 'mbbill/undotree' },
+  -- Sticky context text
+  { 'nvim-treesitter/nvim-treesitter-context' },
+  -- Clean visual mode -- we'll see?
+  { 'folke/zen-mode.nvim' },
+  -- Color theme (matches GMK which will ship soon^TM)
+  { 'shaunsingh/nord.nvim' },
+  -- Terminal in nvim
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
   },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
