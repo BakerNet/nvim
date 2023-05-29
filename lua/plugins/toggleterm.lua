@@ -14,3 +14,6 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+vim.keymap.set('n', '<leader>tl', [[<Cmd>ToggleTerm size=100 direction=vertical persist_mode=true<CR>]])
+vim.keymap.set('n', '<leader>tj', [[<Cmd>ToggleTerm size=20 direction=horizontal persist_mode=true<CR>]])
