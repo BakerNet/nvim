@@ -1,7 +1,0 @@
-require("plugins.telescope")
-require("plugins.treesitter")
-require("plugins.nvim-cmp")
-require("plugins.lsp")
-require("plugins.nvim-tree")
-require("plugins.colors")
-require("plugins.toggleterm")
