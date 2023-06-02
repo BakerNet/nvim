@@ -48,3 +48,7 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[F]ind [K]eymaps' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
+vim.keymap.set('n', '<leader>fcf', require('telescope').extensions.advanced_git_search.diff_commit_file,
+  { desc = '[F]ind [C]ommit for [F]ile' })
+vim.keymap.set('n', '<leader>fcl', require('telescope').extensions.advanced_git_search.diff_commit_line,
+  { desc = '[F]ind [C]ommit for [L]ines' })
