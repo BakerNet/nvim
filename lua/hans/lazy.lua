@@ -185,7 +185,7 @@ require('lazy').setup({
   -- Clean visual mode -- we'll see?
   { 'folke/zen-mode.nvim' },
   -- Color theme (matches GMK which will ship soon^TM)
-  { 'shaunsingh/nord.nvim' },
+  { 'gbprod/nord.nvim' },
   -- Terminal in nvim
   {
     'akinsho/toggleterm.nvim',
