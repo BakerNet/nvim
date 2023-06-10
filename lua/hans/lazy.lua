@@ -87,15 +87,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
-  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -161,12 +152,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   -- Automatically close brackets / quotes
-  {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup {}
-    end
-  },
+  { 'windwp/nvim-autopairs' },
   -- File tree sidebar *chef's kiss
   {
     "nvim-tree/nvim-tree.lua",
@@ -174,9 +160,6 @@ require('lazy').setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
   },
   -- Change history
   { 'mbbill/undotree' },
@@ -185,7 +168,7 @@ require('lazy').setup({
   -- Clean visual mode -- we'll see?
   { 'folke/zen-mode.nvim' },
   -- Color theme (matches GMK which will ship soon^TM)
-  { 'gbprod/nord.nvim' },
+  { 'EdenEast/nightfox.nvim' },
   -- Terminal in nvim
   {
     'akinsho/toggleterm.nvim',
