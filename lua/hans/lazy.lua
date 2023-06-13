@@ -21,6 +21,15 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  -- Color theme (matches GMK which will ship soon^TM)
+  {
+    'EdenEast/nightfox.nvim',
+    lazy = false,
+    config = function()
+      -- Load the colorscheme
+      vim.cmd [[colorscheme nordfox]]
+    end
+  },
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -168,8 +177,6 @@ require('lazy').setup({
   { 'nvim-treesitter/nvim-treesitter-context' },
   -- Clean visual mode -- we'll see?
   { 'folke/zen-mode.nvim' },
-  -- Color theme (matches GMK which will ship soon^TM)
-  { 'EdenEast/nightfox.nvim' },
   -- Terminal in nvim
   {
     'akinsho/toggleterm.nvim',
