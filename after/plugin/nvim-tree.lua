@@ -10,9 +10,6 @@ require("nvim-tree").setup({
   renderer = {
     group_empty = true,
   },
-  filters = {
-    dotfiles = true,
-  },
 })
 
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<cr>", { desc = 'Toggle [E]xplorer' })
