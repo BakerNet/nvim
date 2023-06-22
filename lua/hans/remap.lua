@@ -55,3 +55,6 @@ vim.keymap.set('n', '<C-l>', [[<Cmd>wincmd l<CR>]])
 -- buffers
 vim.keymap.set('n', '<leader>bp', [[<Cmd>bprev<CR>]])
 vim.keymap.set('n', '<leader>bn', [[<Cmd>bnext<CR>]])
+
+-- save with C-s
+vim.keymap.set({ 'n', 'i' }, '<C-s>', [[<Cmd>w!<CR>]])

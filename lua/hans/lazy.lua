@@ -34,6 +34,7 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'sindrets/diffview.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -73,6 +74,9 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+
+      -- Adds path completion
+      'hrsh7th/cmp-path',
     },
   },
 
@@ -90,10 +94,16 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame_opts = {
+        delay = 100,
+      },
       on_attach = function(bufnr)
         vim.keymap.set('n', '[c', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to Previous Hunk' })
         vim.keymap.set('n', ']c', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to Next Hunk' })
-        vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
+        vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk,
+          { buffer = bufnr, desc = 'Previw [G]it [H]unk' })
+        vim.keymap.set('n', '<leader>gb', require('gitsigns').toggle_current_line_blame,
+          { buffer = bufnr, desc = 'Toggle [G]it Line [B]lame' })
       end,
     },
   },

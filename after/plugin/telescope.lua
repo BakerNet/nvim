@@ -16,15 +16,7 @@ require('telescope').setup {
   extensions = {
     advanced_git_search = {
       -- fugitive or diffview
-      diff_plugin = "fugitive",
-      -- customize git in previewer
-      -- e.g. flags such as { "--no-pager" }, or { "-c", "delta.side-by-side=false" }
-      git_flags = {},
-      -- customize git diff in previewer
-      -- e.g. flags such as { "--raw" }
-      git_diff_flags = {},
-      -- Show builtin git pickers when executing "show_custom_functions" or :AdvancedGitSearch
-      show_builtin_git_pickers = false,
+      diff_plugin = "diffview",
     }
   }
 }
@@ -45,16 +37,16 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').git_files, { desc = '[F]ind project [F]iles' })
+vim.keymap.set('n', '<leader>fa', require('telescope.builtin').find_files, { desc = '[F]ind all [F]iles' })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
 vim.keymap.set('n', '<leader>fg', require('telescope').extensions.live_grep_args.live_grep_args,
   { desc = '[F]ind by [G]rep' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[F]ind [K]eymaps' })
+vim.keymap.set('n', '<leader>fc', require('telescope').extensions.advanced_git_search.diff_commit_file,
+  { desc = '[F]ind [C]ommit for file' })
+vim.keymap.set({ 'n', 'v' }, '<leader>fl', require('telescope').extensions.advanced_git_search.diff_commit_line,
+  { desc = '[F]ind commit for [L]ines' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
-vim.keymap.set('n', '<leader>fcf', require('telescope').extensions.advanced_git_search.diff_commit_file,
-  { desc = '[F]ind [C]ommit for [F]ile' })
-vim.keymap.set({ 'n', 'v' }, '<leader>fcl', require('telescope').extensions.advanced_git_search.diff_commit_line,
-  { desc = '[F]ind [C]ommit for [L]ines' })
