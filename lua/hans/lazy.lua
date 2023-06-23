@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- Color theme (matches GMK which will ship soon^TM)
+  -- Color theme (matches GMK keycaps on the 7V daily driver)
   {
     'EdenEast/nightfox.nvim',
     lazy = false,
