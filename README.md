@@ -1,4 +1,4 @@
 Neovim config (WIP)
 
 Example screenshot:
-![neovim-day2-cropped](https://github.com/BakerNet/nvim/assets/14320095/9ea99692-b1ad-43a3-8f5c-1d71ed1cd4b7)
+![nvim_month2](https://github.com/BakerNet/nvim/assets/14320095/a6c3ef79-7047-45fe-ad28-49d8060ce87f)
