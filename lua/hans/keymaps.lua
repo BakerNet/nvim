@@ -8,24 +8,10 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
 -- [[ Yanked from Primeagen ]]
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -51,10 +37,14 @@ vim.keymap.set('n', '<C-h>', [[<Cmd>wincmd h<CR>]])
 vim.keymap.set('n', '<C-j>', [[<Cmd>wincmd j<CR>]])
 vim.keymap.set('n', '<C-k>', [[<Cmd>wincmd k<CR>]])
 vim.keymap.set('n', '<C-l>', [[<Cmd>wincmd l<CR>]])
+vim.keymap.set('n', '<leader>l', [[<Cmd>vertical resize -10<CR>]])
+vim.keymap.set('n', '<leader>h', [[<Cmd>vertical resize +10<CR>]])
+vim.keymap.set('n', '<leader>j', [[<Cmd>resize -10<CR>]])
+vim.keymap.set('n', '<leader>k', [[<Cmd>resize +10<CR>]])
 
 -- buffers
 vim.keymap.set('n', '<leader>bp', [[<Cmd>bprev<CR>]])
 vim.keymap.set('n', '<leader>bn', [[<Cmd>bnext<CR>]])
 
 -- save with C-s
-vim.keymap.set({ 'n', 'i' }, '<C-s>', [[<Cmd>w!<CR>]])
+vim.keymap.set({ 'n', 'i' }, '<C-s>', [[<Cmd>wa!<CR>]])

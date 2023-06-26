@@ -1,4 +1,4 @@
-require("hans.set")
-require("hans.remap")
+require("hans.opts")
+require("hans.keymaps")
 require("hans.lazy")
-
+require("hans.autocmds")
