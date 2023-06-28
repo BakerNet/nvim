@@ -60,3 +60,6 @@ vim.o.colorcolumn = "80"
 
 -- auto-save
 vim.o.autowriteall = true
+
+-- highlight cursor line
+vim.o.cursorline = true
