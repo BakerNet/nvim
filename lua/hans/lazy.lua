@@ -97,14 +97,6 @@ require('lazy').setup({
       current_line_blame_opts = {
         delay = 100,
       },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '[c', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to Previous Hunk' })
-        vim.keymap.set('n', ']c', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to Next Hunk' })
-        vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk,
-          { buffer = bufnr, desc = 'Previw [G]it [H]unk' })
-        vim.keymap.set('n', '<leader>gb', require('gitsigns').toggle_current_line_blame,
-          { buffer = bufnr, desc = 'Toggle [G]it Line [B]lame' })
-      end,
     },
   },
 
