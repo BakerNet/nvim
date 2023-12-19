@@ -57,7 +57,7 @@ local setup_autoformat = function()
                     end
 
                     vim.lsp.buf.format {
-                        async = false,
+                        async = true, -- black takes forever... we'll see
                         filter = function(c)
                             return c.id == client.id
                         end,
@@ -94,8 +94,8 @@ local setup_lsp = function()
         nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
         nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-        nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols in [D]ocument')
+        nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols in [W]orkspace')
 
         -- See `:help K` for why this keymap
         nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -136,28 +136,30 @@ local setup_lsp = function()
 
     local venv_path = os.getenv('VIRTUAL_ENV')
     if venv_path ~= nil then
-        servers['pylsp'] = {
-            settings = {
-                pylsp = {
-                    plugins = {
-                        -- formatter options
-                        black = { enabled = true },
-                        autopep8 = { enabled = false },
-                        yapf = { enabled = false },
-                        -- linter options
-                        runn = { enabled = true },
-                        pylint = { enabled = false, executable = "pylint" },
-                        pyflakes = { enabled = false },
-                        pycodestyle = { enabled = false },
-                        -- type checker
-                        pylsp_mypy = { enabled = true },
-                        -- auto-completion options
-                        jedi_completion = { fuzzy = true },
-                        -- import sorting
-                        pyls_isort = { enabled = true },
-                    },
+        servers.pylsp = {
+            pylsp = {
+                plugins = {
+                    -- formatter options
+                    black = { enabled = true },
+                    autopep8 = { enabled = false },
+                    yapf = { enabled = false },
+                    -- linter options
+                    ruff = { enabled = true },
+                    pylint = { enabled = false, executable = "pylint" },
+                    pyflakes = { enabled = false },
+                    pycodestyle = { enabled = false },
+                    mccabe = { enabled = false },
+                    flake8 = { enabled = false },
+                    -- type checker
+                    pylsp_mypy = { enabled = false },
+                    -- auto-completion options
+                    jedi_completion = { fuzzy = true },
+                    -- import sorting
+                    isort = { enabled = true },
+                    -- code actions
+                    rope_autoimport = { enabled = true },
                 },
-            }
+            },
         }
     end
 

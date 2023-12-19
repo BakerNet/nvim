@@ -1,8 +1,8 @@
 return {
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim', opts = {} },
+    -- Set lualine as statusline
     {
-        -- Set lualine as statusline
         'nvim-lualine/lualine.nvim',
         -- See `:help lualine.txt`
         opts = {
@@ -14,7 +14,8 @@ return {
             },
         },
     },
-    { -- File tree sidebar *chef's kiss
+    -- File tree sidebar *chef's kiss
+    {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         dependencies = {
@@ -34,6 +35,7 @@ return {
             vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<cr>", { desc = 'Toggle [E]xplorer' })
         end
     },
+    -- Tab bar at the top like GUI editors
     {
         'akinsho/bufferline.nvim',
         version = "*",
@@ -78,6 +80,7 @@ return {
             end)
         end
     },
+    -- Pretty commandline, messages, and notifications
     {
         "folke/noice.nvim",
         event = "VeryLazy",
@@ -102,11 +105,22 @@ return {
                         ["cmp.entry.get_documentation"] = true,
                     },
                 },
+                routes = {
+                    {
+                        filter = { event = "msg_showmode" },
+                        view = "notify",
+                    },
+                },
                 -- you can enable a preset for easier configuration
                 presets = {
                     command_palette = true, -- position the cmdline and popupmenu together
                 },
             })
         end
+    },
+    -- Better vim.ui.select and vim.ui.input
+    {
+        "stevearc/dressing.nvim",
+        opts = {},
     }
 }

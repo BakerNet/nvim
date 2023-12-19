@@ -48,3 +48,11 @@ vim.keymap.set('n', '<leader>bn', [[<Cmd>bnext<CR>]])
 
 -- save with C-s
 vim.keymap.set({ 'n', 'i' }, '<C-s>', [[<Cmd>wa!<CR>]])
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Open [D]iagnostic [F]loating message' })
+vim.keymap.set("n", "<leader>dv", require("hans.diagnostics").line_diagnostics,
+  { buffer = bufnr, desc = 'Open [D]iagnostic [S]ource Floating message' })
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open [D]iagnostics [L]ist' })
