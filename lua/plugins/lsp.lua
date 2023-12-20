@@ -56,8 +56,16 @@ local setup_autoformat = function()
                         return
                     end
 
+                    local async = false
+                    -- black is too slow - only worth with async
+                    local venv_path = os.getenv('VIRTUAL_ENV')
+                    if venv_path ~= nil then
+                        async = true
+                    end
+
+
                     vim.lsp.buf.format {
-                        async = true, -- black takes forever... we'll see
+                        async = async,
                         filter = function(c)
                             return c.id == client.id
                         end,
