@@ -109,6 +109,9 @@ return {
                     {
                         filter = { event = "msg_showmode" },
                         view = "notify",
+                        opts = {
+                            replace = true
+                        }
                     },
                 },
                 -- you can enable a preset for easier configuration

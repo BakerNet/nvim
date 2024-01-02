@@ -132,7 +132,22 @@ local setup_lsp = function()
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    features = "all",
+                },
+                procMacro = {
+                    ignored = {
+                        leptos_macro = {
+                            -- optional: --
+                            -- "component",
+                            "server",
+                        },
+                    },
+                },
+            }
+        },
         tsserver = {},
         lua_ls = {
             Lua = {
