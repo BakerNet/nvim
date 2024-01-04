@@ -107,7 +107,7 @@ return {
                 },
                 routes = {
                     {
-                        filter = { event = "msg_showmode" },
+                        filter = { event = "msg_showmode", find = "recording" },
                         view = "notify",
                         opts = {
                             replace = true
