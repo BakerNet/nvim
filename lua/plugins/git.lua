@@ -38,7 +38,13 @@ return {
     {
         'sindrets/diffview.nvim',
         config = function()
-            vim.keymap.set('n', '<leader>dq', [[<Cmd>DiffviewClose<CR>]], { desc = '[D]iff [Q]uit' })
+            vim.keymap.set('n', '<leader>gd', [[<Cmd>DiffviewOpen<CR>]], { desc = '[G]it [D]iff' })
+            vim.keymap.set('n', '<leader>gq', [[<Cmd>DiffviewClose<CR>]], { desc = '[G]it Diff [Q]uit' })
+            vim.keymap.set('n', '<leader>gc', function()
+                vim.cmd('DiffviewClose')
+                vim.cmd('Git commit')
+                vim.cmd('startinsert')
+            end, { desc = '[G]it commit' })
         end
     }
 }
