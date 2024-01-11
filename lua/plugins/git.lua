@@ -21,10 +21,10 @@ return {
         config = function()
             require('gitsigns').setup()
 
-            vim.keymap.set('n', '[c', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to Previous Hunk' })
+            vim.keymap.set('n', '[g', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Previous [G]it Hunk' })
             vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
                 { buffer = bufnr, desc = '[G]it Hunk [P]revious' })
-            vim.keymap.set('n', ']c', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to Next Hunk' })
+            vim.keymap.set('n', ']g', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Next [G]it Hunk' })
             vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk,
                 { buffer = bufnr, desc = '[G]it Hunk [N]ext' })
             vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk,

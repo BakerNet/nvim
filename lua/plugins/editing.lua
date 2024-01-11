@@ -52,6 +52,8 @@ end
 return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
+    -- Subvert (S instead of s) support for maintaining case
+    'tpope/vim-abolish',
     -- Automatically close brackets / quotes
     {
         'windwp/nvim-autopairs',
