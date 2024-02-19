@@ -100,5 +100,8 @@ return {
         -- See `:help indent_blankline.txt`
         main = "ibl",
         opts = {},
+        config = function()
+            require('ibl').setup()
+        end
     },
 }

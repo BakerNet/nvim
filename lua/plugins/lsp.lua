@@ -211,6 +211,20 @@ local setup_lsp = function()
     }
 end
 
+-- [[ Configure Linters & Formatters ]]
+--  This function gets run when an LSP connects to a particular buffer.
+local setup_none_ls = function()
+    local null_ls = require("null-ls")
+
+    null_ls.setup({
+        sources = {
+            -- null_ls.builtins.formatting.stylua,
+            -- null_ls.builtins.completion.spell,
+            null_ls.builtins.formatting.prettier,
+            -- null_ls.builtins.formatting.eslint,
+        },
+    })
+end
 
 -- LSP Configuration & Plugins
 return {
@@ -224,11 +238,15 @@ return {
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
+        -- For turning commandline tools into LSPs
+        'nvimtools/none-ls.nvim',
+
         -- Additional lua configuration, makes nvim stuff amazing!
         'folke/neodev.nvim',
     },
     config = function()
         setup_autoformat()
         setup_lsp()
+        setup_none_ls()
     end,
 }
