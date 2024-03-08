@@ -155,11 +155,7 @@ local setup_lsp = function()
                 telemetry = { enable = false },
             },
         },
-    }
-
-    local venv_path = os.getenv('VIRTUAL_ENV')
-    if venv_path ~= nil then
-        servers.pylsp = {
+        pylsp = {
             pylsp = {
                 plugins = {
                     -- formatter options
@@ -183,8 +179,8 @@ local setup_lsp = function()
                     rope_autoimport = { enabled = true },
                 },
             },
-        }
-    end
+        },
+    }
 
     -- Setup neovim lua configuration
     require('neodev').setup()
