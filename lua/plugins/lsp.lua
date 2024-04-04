@@ -130,8 +130,8 @@ local setup_lsp = function()
     --  the `settings` field of the server config. You must look up that documentation yourself.
     local servers = {
         -- clangd = {},
-        -- gopls = {},
         -- pyright = {},
+        gopls = {},
         rust_analyzer = {
             ["rust-analyzer"] = {
                 cargo = {
@@ -155,6 +155,10 @@ local setup_lsp = function()
                 telemetry = { enable = false },
             },
         },
+        basedpyright = {
+            diagnosticMode = "openFilesOnly",
+            reportMissingTypeStubs = false,
+        }
         -- pylsp = {
         --     pylsp = {
         --         plugins = {
