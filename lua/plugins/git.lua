@@ -33,6 +33,10 @@ return {
                 { buffer = bufnr, desc = 'Toggle [G]it Line [B]lame' })
             vim.keymap.set('n', '<leader>gu', require('gitsigns').reset_hunk,
                 { buffer = bufnr, desc = 'Toggle [G]it [U]ndo (Reset) Hunk' })
+            vim.keymap.set('n', '<leader>gs', require('gitsigns').stage_hunk,
+                { buffer = bufnr, desc = 'Toggle [G]it [S]tage Hunk' })
+            vim.keymap.set('n', '<leader>gr', require('gitsigns').undo_stage_hunk,
+                { buffer = bufnr, desc = 'Toggle [G]it [R]eset (Undo previous) Hunk' })
         end
     },
     {
