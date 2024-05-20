@@ -117,6 +117,12 @@ return {
                     command_palette = true, -- position the cmdline and popupmenu together
                 },
             })
+            vim.keymap.set("n", "<leader>na", function() require('noice').cmd('all') end,
+                { desc = "Show [N]oice list [A]ll" })
+            vim.keymap.set("n", "<leader>nd", function() require('noice').cmd('dismiss') end,
+                { desc = "[N]oice [D]ismiss messages" })
+            vim.keymap.set("n", "<leader>nl", function() require('noice').cmd('last') end,
+                { desc = "[N]oice [L]ast message" })
         end
     },
     -- Better vim.ui.select and vim.ui.input
