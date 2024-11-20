@@ -55,6 +55,14 @@ return {
     'tpope/vim-sleuth',
     -- Subvert (S instead of s) support for maintaining case
     'tpope/vim-abolish',
+    -- Align text with motions
+    {
+        'junegunn/vim-easy-align',
+        config = function()
+            vim.keymap.set('x', 'ga', '<Plug>(EasyAlign)', { noremap = false, silent = true })
+            vim.keymap.set('n', 'ga', '<Plug>(EasyAlign)', { noremap = false, silent = true })
+        end
+    },
     -- Automatically close brackets / quotes
     {
         'windwp/nvim-autopairs',
